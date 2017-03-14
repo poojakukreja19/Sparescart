@@ -4,22 +4,38 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel = "stylesheet" type="text/css" href = "./stylesheet/loginform.css"/>
+
 <title>Insert title here</title>
+
 </head>
 <body>
-<h1>This is Login page</h1>
-<form action="validate">
-<table>
-<tr>
-<td>User Id:</td>
-<td><input type="text" name="userId"></td>
-</tr>
-<tr>
-<td>Password:</td>
-<td><input type="password" name="password"></td>
-</tr>
-<tr><td><input type="submit" value="Login"></td></tr>
-</table>
-</form>
+<center><h2>Login Form</h2></center>
+
+<div class="container">
+                <div class="row vertical-offset-70">
+                    <div class="col-md-4 col-md-offset-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">                                
+                                <div class="row-fluid user-row">
+                                    <img src="http://s11.postimg.org/7kzgji28v/logo_sm_2_mr_1.png" class="img-responsive" alt="Conxole Admin"/>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <form action="validate" accept-charset="UTF-8" role="form" class="form-signin">
+                                    <fieldset>
+                                        <label class="panel-login">
+                                          <div class="login_result"></div>
+                                        </label>
+                                        <input class="form-control" placeholder="UserId" id="userId" type="text" name="userId" >
+                                        <input class="form-control" placeholder="Password" id="password" type="password" name="password">
+                                        <input class="btn btn-lg btn-success btn-block" type="submit" id="login" value="Login »">
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 </body>
 </html>

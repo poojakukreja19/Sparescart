@@ -1,5 +1,6 @@
 package com.niit.controller;
 
+import javax.jws.soap.SOAPBinding.Use;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,8 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.niit.sparescart.dao.UserDAO;
+import com.niit.sparescart.domain.User;
+
 @Controller
 public class HelloController {
+	
+	@Autowired
+	private UserDAO userDAO;
+	
+	@Autowired
+    private User user;	
+	
 	@Autowired
 	private HttpSession session;
 	
@@ -26,7 +37,7 @@ public class HelloController {
 	public ModelAndView ShowLoginPage()
 	{
 		System.out.println("Welcome to login page");
-		ModelAndView mv = new ModelAndView("/Login");
+		ModelAndView mv = new ModelAndView("/index");
 		mv.addObject("Isuserclickedlogin", "true");
 		return mv;
 	}
@@ -35,17 +46,32 @@ public class HelloController {
 	public ModelAndView Showregistration()
 	{
 		System.out.println("clicked a register page");
-		ModelAndView mv = new ModelAndView("/Register");
+		ModelAndView mv = new ModelAndView("/index");
 		mv.addObject("Isuserclickedregister", "true");
 		return mv;
 	}
 	
 	@RequestMapping("/validate")
-	public  ModelAndView ValidateCredentials(@RequestParam("userid")String id,@RequestParam("password")String p)
+	public  ModelAndView ValidateCredentials(@RequestParam("userId")String id,@RequestParam("password")String p)
 	{
 	ModelAndView mv	 = new ModelAndView("/index");
-	if(id.equals("niit")&&p.equals("niit@123"))
+	mv.addObject("isUserLoggedIn", "false");
+    if(userDAO.validate(id, p)==true)
 	{
+    	//credentials are correct
+    	mv.addObject("isUserLoggedIn", "true");
+
+    	user=userDAO.getUserByID(id);
+    	if(user.getRole().equals("Role_Admin"))
+    	{
+    	mv.addObject("isAdmin", "true");
+    	}
+	
+    else
+    {
+    	mv.addObject("isAdmin","false");
+    }
+    	
 		mv.addObject("successmessage", "Valid Credentials");
 		session.setAttribute("loginmessage", "welcome:"+id);
 	}
