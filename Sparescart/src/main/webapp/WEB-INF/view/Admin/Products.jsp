@@ -9,17 +9,20 @@
 </head>
 <body>
 <center>
-<h2>Add New Product</h2>
+<h3>Add New Product</h3>
 <hr>
+<center>${message}</center>
 <form action="manage_products_create" method="post">
-<input type="text" name="id">
-<input type="text" name="name">
-<input type="text" name="price">
-<input type="text" name="description">
+ID<input type="text" name="id">
+NAME<input type="text" name="name">
+PRICE<input type="text" name="price">
+DESCRIPTION<input type="text" name="description">
 <input type="submit" value="Create">
 </form>
 <br>
-<table border="2">
+<h3>List of Product</h3>
+
+<table class="table table-bordered">
 <thead>
 <tr>
 <td> ID</td>

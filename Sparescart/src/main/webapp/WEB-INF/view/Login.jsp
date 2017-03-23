@@ -27,7 +27,7 @@
                                         <label class="panel-login">
                                           <div class="login_result"></div>
                                         </label>
-                                        <input class="form-control" placeholder="UserId" id="userId" type="text" name="userId" >
+                                        <input class="form-control" placeholder="UserId" id="userId" type="text" name="username" >
                                         <input class="form-control" placeholder="Password" id="password" type="password" name="password">
                                         <input class="btn btn-lg btn-success btn-block" type="submit" id="login" value="Login »">
                                     </fieldset>

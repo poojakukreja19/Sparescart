@@ -8,19 +8,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-<center><h2>Manage Category</h2></center>
+<center><h3>Add New Category</h3></center>
 <hr>
 <br>
 <center>
 <form action="manage_category_create" method="post">
-<input type="text" name="id">
-<input type="text" name="name">
-<input type="text" name="description">
+ID<input type="text" name="id">
+NAME<input type="text" name="name">
+DESCRIPTION<input type="text" name="description">
 <input type="submit" value="Create">
 </form>
 <br>
+<center><h3>List of Category</h3></center>
 
-<table border="2">
+<table class="table table-bordered">
 <thead>
 <tr>
 <td> ID</td>
@@ -29,15 +30,16 @@
 <td> Action</td>
 </tr>
 </thead>
-
+</form>
 <c:forEach var="category" items="${categoryList}">
 <tr>
-<td>${category.id}</td>
-<td>${category.name}</td>
-<td>${category.description}</td>
-<td> <a href="manage_category_edit/${category.id}/${category.name}/${category.description}">Edit</a> | <a href="manage_category_delete/${category.id}">Delete</a></td>
+<td><input type="text name="Id" value="${category.id}"> </td>
+<td><input type="text" name="name" value="${category.name}"></td>
+<td><input type="text" name="description" value="${category.description}"></td>
+<td><a href="manage_category_edit/${category.id}/${category.name}/${category.description}">Edit</a> | <a href="manage_category_delete/${category.id}">Delete</a></td>
 </tr>
 </c:forEach>
+</form>
 </table>
 </center>
 </body>

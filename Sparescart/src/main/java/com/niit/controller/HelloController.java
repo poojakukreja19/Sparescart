@@ -4,7 +4,9 @@ import javax.jws.soap.SOAPBinding.Use;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -30,10 +32,12 @@ public class HelloController {
 		System.out.println("Welcome to home page");
 		ModelAndView mv = new ModelAndView("/index");
 		mv.addObject("msg", "Welcome to shopping cart");
+		mv.addObject("isAdmin","false");
 		return mv;
 	}
 	
-	@RequestMapping("/login")
+	//@RequestMapping("/login")
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView ShowLoginPage()
 	{
 		System.out.println("Welcome to login page");
@@ -52,7 +56,7 @@ public class HelloController {
 	}
 	
 	@RequestMapping("/validate")
-	public  ModelAndView ValidateCredentials(@RequestParam("userId")String id,@RequestParam("password")String p)
+	public  ModelAndView ValidateCredentials(@RequestParam("username")String id,@RequestParam("password")String p)
 	{
 	ModelAndView mv	 = new ModelAndView("/index");
 	mv.addObject("isUserLoggedIn", "false");
@@ -86,6 +90,7 @@ public class HelloController {
 	public ModelAndView Logout()
 	{
 		ModelAndView mv = new ModelAndView("/index");
+		mv.addObject("isAdmin", "false");
 		session.removeAttribute("loginmessage");
 		return mv;
 	}

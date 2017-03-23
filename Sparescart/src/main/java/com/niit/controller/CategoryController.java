@@ -30,14 +30,6 @@ public class CategoryController {
 	
 	//Curd operation
 	
-//	public ModelAndView getAllCatogeries()
-//	{
-//		ModelAndView mv = new ModelAndView("/AdminHome");
-//		List<Category> categoryList = categoryDAO.getallCategories();
-//		mv.addObject("categoryList", categoryList);
-		
-//		return mv;
-//	}
 	
 	@PostMapping("/manage_category_create") //for calling create method through jsp page
 	
@@ -50,7 +42,7 @@ public class CategoryController {
 		category.setId(id);
 		category.setName(name);
 		category.setDescription(description);
-		
+		System.out.println(id +name + description);
 		ModelAndView mv = new ModelAndView("redirect:/manage_categories");
 		if(categoryDAO.save(category))
 		{
@@ -85,6 +77,8 @@ public class CategoryController {
 	@GetMapping("/manage_category_edit/{id}/{name}/{description}")
 	public ModelAndView updateCategory(@PathVariable("id") String id,@PathVariable("name") String name,@PathVariable("description") String description)
 	{
+		System.out.println(id +name +description);
+		
 		category.setId(id);
 		category.setName(name);
 		category.setDescription(description);

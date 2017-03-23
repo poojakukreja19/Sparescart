@@ -26,6 +26,7 @@ h4 {
 <center><h3>${msg}</h3></center>
 <h3>${loginmessage}</h3>
 
+<c:if test="${isAdmin==false}">
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -57,6 +58,7 @@ h4 {
     </ul>
   </div>
 </nav> 
+</c:if>
 <center><h4>${successmessage}</h4></center>
 <center><h4>${errormessage}</h4></center>
 
@@ -78,7 +80,7 @@ h4 {
 
 <c:if test="${Isuserclickedlogin==false}">
  <marquee behavior="alternate">
-<img src="http://www.americancoolingandheating.com/wp-content/uploads/2013/05/AirCondInside.jpg" class="img-rectangle" width="300" height="200">
+<img src="./images/Compressor.jpg" class="img-rectangle" width="300" height="200">
 <img src="http://www.discountacparts.com/images/29-5089NH.jpg" class="img-rectangle" width="300" height="200">
 <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTBp9BQ0to9XwOzyVdVEf4SbQa-oO7uxxXIPGI8qCA2K_Cz69dM" class="img-rectangle" width="300" height="200">
 <img src="http://www.bdaircool.com/application/views/module/product_more_image/Ac%20Compresser6.jpg" class="img-rectangle" width="300" height="200">

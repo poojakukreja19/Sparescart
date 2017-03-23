@@ -4,19 +4,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+  <script src="./bootstrap/js/jquery-2.2.3.min.js"></script>
+  <script src="./bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 <center>
+<h3>Add New Supplier</h3>
+<hr>
 <form action="manage_supplier_create" method="post">
-<input type="text" name="userId">
-<input type="text" name="name">
-<input type="text" name="address">
+ID<input type="text" name="id">
+NAME<input type="text" name="name">
+CONTACT<input type="text" name="contact">
+ADDRESS<input type="text" name="address">
 <input type="submit" value="Create">
 </form>
+<br>
+<h3>List of Supplier</h3>
 
-<table border="2">
+<table class="table table-striped">
 <thead>
 <tr>
 <td> ID </td>
@@ -33,7 +42,7 @@
 <td>${supplier.name}</td>
 <td>${supplier.contact}</td>
 <td>${supplier.address}</td>
-<td> <a href="/manage_suppliers">Edit</a> | <a href="/manage_suppliers">Delete</a></td>
+<td> <a href="manage_suppliers_edit">Edit</a> | <a href="manage_suppliers_delete/${supplier.id}">Delete</a></td>
 </tr>
 </c:forEach>
 </table>
