@@ -32,16 +32,28 @@ DESCRIPTION<input type="text" name="description">
 <td> Action</td>
 </tr>
 </thead>
-
 <c:forEach var="product" items="${productList}">
+<form action="manage_products_edit/${product.id}" method="get">
+<tr>
+<td><input type="text" name="id" value="${product.id}"> </td>
+<td><input type="text" name="name" value="${product.name}"></td>
+<td><input type="text" name="price" value="${product.price}"></td>
+<td><input type="text" name="description" value="${product.description}"></td>
+<td><input type="submit" value="edit"> | <a href="manage_products_delete/${product.id}">Delete</a></td>
+</tr>
+</form>
+</c:forEach>
+
+<!--<c:forEach var="product" items="${productList}">
 <tr>
 <td>${product.id}</td>
 <td>${product.name}</td>
 <td>${product.price}</td>
 <td>${product.description}</td>
-<td> <a href="manage_products_edit/${product.id}/${product.name}/${product.price}/${product.description}">Edit</a> | <a href="manage_products_delete/${product.id}">Delete</a></td>
+<td> <a href="manage_products_edit/${product.id}">Edit</a> | <a href="manage_products_delete/${product.id}">Delete</a></td>
 </tr>
-</c:forEach>
+</c:forEach>-->
+
 </table>
 </center>
 </body>

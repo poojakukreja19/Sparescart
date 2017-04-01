@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.niit.sparescart.dao.MyCartDAO;
 import com.niit.sparescart.dao.UserDAO;
+import com.niit.sparescart.domain.Mycart;
 import com.niit.sparescart.domain.User;
 
 @Controller
@@ -23,10 +25,15 @@ public class HelloController {
     private User user;	
 	
 	@Autowired
-	private HttpSession session;
+	private MyCartDAO myCartDAO;
 	
+	@Autowired
+	private Mycart myCart;
 	
-	@RequestMapping("/")
+	@Autowired
+	private HttpSession session;	
+	
+	@RequestMapping(value= "/", method = RequestMethod.GET)
 	public ModelAndView ShowHomePage()
 	{
 		System.out.println("Welcome to home page");
@@ -55,6 +62,15 @@ public class HelloController {
 		return mv;
 	}
 	
+	@RequestMapping("/myCart")
+	public ModelAndView Showmycart()
+	{
+		System.out.println("clicked a mycart page");
+		ModelAndView mv = new ModelAndView("/index");
+		mv.addObject("Isuserclickedmycart", "true");
+		return mv;
+	}
+
 	@RequestMapping("/validate")
 	public  ModelAndView ValidateCredentials(@RequestParam("username")String id,@RequestParam("password")String p)
 	{
@@ -78,6 +94,7 @@ public class HelloController {
     	
 		mv.addObject("successmessage", "Valid Credentials");
 		session.setAttribute("loginmessage", "welcome:"+id);
+		session.setAttribute("id", id);
 	}
 	else
 	{

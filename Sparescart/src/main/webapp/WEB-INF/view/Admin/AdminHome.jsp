@@ -13,6 +13,7 @@
   <script src="./bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
+
 <center><h1>Welcome Administrator</h1></center>
 <nav class="navbar navbar-default">
   <div class="container-fluid">

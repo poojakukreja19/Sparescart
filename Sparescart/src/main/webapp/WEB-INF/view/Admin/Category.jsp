@@ -12,6 +12,7 @@
 <hr>
 <br>
 <center>
+
 <form action="manage_category_create" method="post">
 ID<input type="text" name="id">
 NAME<input type="text" name="name">
@@ -30,16 +31,16 @@ DESCRIPTION<input type="text" name="description">
 <td> Action</td>
 </tr>
 </thead>
-</form>
 <c:forEach var="category" items="${categoryList}">
+<form action="manage_category_edit/${category.id}" method="get">
 <tr>
 <td><input type="text name="Id" value="${category.id}"> </td>
 <td><input type="text" name="name" value="${category.name}"></td>
 <td><input type="text" name="description" value="${category.description}"></td>
-<td><a href="manage_category_edit/${category.id}/${category.name}/${category.description}">Edit</a> | <a href="manage_category_delete/${category.id}">Delete</a></td>
+<td><input type="submit" value="edit"> | <a href="manage_category_delete/${category.id}">Delete</a></td>
 </tr>
+
 </c:forEach>
-</form>
 </table>
 </center>
 </body>

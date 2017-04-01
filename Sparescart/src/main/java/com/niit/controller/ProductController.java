@@ -56,8 +56,8 @@ public class ProductController {
 		return mv;
 	}
 	
-	@GetMapping("/manage_products_edit/{id}/{name}/{description}")
-	public ModelAndView updateProduct(@RequestParam("id")String id, @RequestParam("name")String name, @RequestParam("price")String price, 
+	@GetMapping("/manage_products_edit/{id}")
+	public ModelAndView updateProduct(@PathVariable("id")String id, @RequestParam("name")String name, @RequestParam("price")String price, 
 			@RequestParam("description")String description)
 	{
 		product.setId(id);
