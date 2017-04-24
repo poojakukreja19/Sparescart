@@ -15,7 +15,7 @@
 <center>
 <h3>Add New Supplier</h3>
 <hr>
-<form action="manage_supplier_create" method="post">
+<form action="manage_supplier_create" method="get">
 ID<input type="text" name="id">
 NAME<input type="text" name="name">
 CONTACT<input type="text" name="contact">
@@ -35,8 +35,19 @@ ADDRESS<input type="text" name="address">
 <td> Action </td>
 </tr>
 </thead>
-
 <c:forEach var="supplier" items="${supplierList}">
+<form action="manage_suppliers_edit/${supplier.id}" method="get">
+<tr>
+<td><input type="text" name="id" value="${supplier.id}"> </td>
+<td><input type="text" name="name" value="${supplier.name}"></td>
+<td><input type="text" name="contact" value="${supplier.contact}"></td>
+<td><input type="text" name="address" value="${supplier.address}"></td>
+<td><input type="submit" value="edit"> | <a href="manage_suppliers_delete/${supplier.id}">Delete</a></td>
+</tr>
+</form>
+</c:forEach>
+
+<!--<c:forEach var="supplier" items="${supplierList}">
 <tr>
 <td>${supplier.id}</td>
 <td>${supplier.name}</td>
@@ -44,7 +55,8 @@ ADDRESS<input type="text" name="address">
 <td>${supplier.address}</td>
 <td> <a href="manage_suppliers_edit">Edit</a> | <a href="manage_suppliers_delete/${supplier.id}">Delete</a></td>
 </tr>
-</c:forEach>
+</c:forEach>-->
+
 </table>
 </center>
 </body>

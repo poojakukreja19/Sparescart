@@ -7,11 +7,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel = "stylesheet" type="text/css" href = "./stylesheet/loginform.css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+  <script src="./bootstrap/js/jquery-2.2.3.min.js"></script>
+  <script src="./bootstrap/js/bootstrap.min.js"></script>
 
 <title>Insert title here</title>
 
 </head>
+
 <body>
+<br>
+<br>
 <center><h2>Login Form</h2></center>
 
 <div class="container">
@@ -24,7 +31,8 @@
                                 </div>
                             </div>
                             <div class="panel-body">
-                                <form name='loginForm' action="<c:url value='/j_spring_security_check' />" method='POST' accept-charset="UTF-8" role="form" class="form-signin">
+                             <!--<form action="validate" accept-charset="UTF-8" role="form" class="form-signin">-->
+                                <form name='loginForm' action="<c:url value='/login'/>" method='POST' accept-charset="UTF-8" role="form" class="form-signin">
                                     <fieldset>
                                         <label class="panel-login">
                                           <div class="login_result"></div>

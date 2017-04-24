@@ -1,52 +1,45 @@
+<%@page import="com.niit.sparescart.domain.OrderDetail"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <title>Insert title here</title>
 </head>
 <body>
-hello
-<center><h3>List of Category</h3></center>
+
+<center><h3>List of MyCart</h3>
 
 <table class="table table-bordered">
 <thead>
 <tr>
-<td> USER</td>
-<td> CART_ID</td>
+<td> ID</td>
+<td> ORDER DATE</td>
 <td> PRICE</td>
-<td> STATUS</td>
 <td> QUANTITY</td>
-<td> ADDED_DATE</td>
-<td> PRODUCT</td>
+<td> AMOUNT</td>
 
 <td> Action</td>
 </tr>
 </thead>
-</form>
-<c:forEach var="mycart" items="${mycartList}">
+<c:forEach var="orderDetail" items="${orderDetailList}">
+<form action="" method="get">
 <tr>
-<td><input type="text" name="Id" value="${mycart.user}"> </td>
-<td><input type="text" name="Id" value="${mycart.id}"> </td>
-<td><input type="text" name="name" value="${mycart.price}"></td>
-<td><input type="text" name="name" value="${mycart.status}"></td>
-<td><input type="text" name="name" value="${mycart.quantity}"></td>
-<td><input type="text" name="description" value="${mycart.added_date}"></td>
-<td><a href="manage_category_save/${product.id}">Add to Cart</a> | <a href="manage_category_delete/${product.id}">Delete</a></td>
+<td><input type="text" name="user" value="${orderDetail.id}" readonly="true"> </td>
+<td><input type="text" name="Id" value="${orderDetail.orderDate}"> </td>
+<td><input type="text" name="price" value="${orderDetail.price}"></td>
+<td><input type="text" name="quantity" value="${orderDetail.quantity}"></td>
+<td><input type="text" name="amount" value="${orderDetail.amount}"></td>
+<td> <a href="orderdelete/${orderDetail.id}">REMOVE</a></td>
 </tr>
 </c:forEach>
 </form>
-</table>
-</center>
-	
-
-	<h2>Total cost : ${totalAmount}</h2>
+</table>	
+	<h3>Total cost : ${totalAmount}</h2>
 	<br>
 	<a href="cart_checkout">Checkout </a> 
-	<br>
-	<br>
-
+	</center>
 
 </body>
 </html>

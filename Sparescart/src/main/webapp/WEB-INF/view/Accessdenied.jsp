@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-Dear <strong>${user}</strong>, You are not authorized to access this page
-    <a href="<c:url value="/logout" />">Logout</a>
+Dear <strong>${user}</strong>
+    <a href="<c:url value="/logout"/>">Logout</a>
 </body>
 </html>
