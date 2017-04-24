@@ -20,7 +20,7 @@ public class ProductController {
 	@Autowired
 	Product product;
 	
-	@PostMapping("/manage_products_create")
+	@GetMapping("/manage_products_create")
 	public ModelAndView createProduct(@RequestParam("id")String id, @RequestParam("name")String name, @RequestParam("price")String price, 
 			@RequestParam("description")String description)
 	{

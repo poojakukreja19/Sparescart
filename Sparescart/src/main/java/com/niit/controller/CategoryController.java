@@ -74,7 +74,7 @@ public class CategoryController {
 		
 	//@PostMapping("/manage_category_edit")
 	
-	@GetMapping("/manage_category_edit/{id}/{name}/{description}")
+	@GetMapping("/manage_category_edit/{id}")
 	public ModelAndView updateCategory(@PathVariable("id") String id,@PathVariable("name") String name,@PathVariable("description") String description)
 	{
 		System.out.println(id +name +description);

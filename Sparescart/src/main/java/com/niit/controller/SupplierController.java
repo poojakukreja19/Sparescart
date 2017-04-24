@@ -55,7 +55,7 @@ public class SupplierController {
 		return mv;
 	}
 	
-	@GetMapping("/manage_suppliers_edit/{id}/{name}/{contact}/{address}")
+	@GetMapping("/manage_suppliers_edit/{id}")
 	public ModelAndView updateSupplier(@RequestParam("id")String id, @RequestParam("name")String name, @RequestParam("contact")String contact, 
 			@RequestParam("address")String address)
 	{
@@ -64,7 +64,7 @@ public class SupplierController {
 		supplier.setContact(contact);
 		supplier.setAddress(address);
 		ModelAndView mv = new ModelAndView("redirect:/manage_suppliers");
-		if(supplierDAO.save(supplier))
+		if(supplierDAO.update(supplier))
 		{
 			mv.addObject("message", "Successfully update the Supplier");
 		}

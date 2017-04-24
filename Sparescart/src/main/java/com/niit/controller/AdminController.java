@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -13,6 +14,7 @@ import com.niit.sparescart.dao.SupplierDAO;
 import com.niit.sparescart.domain.Category;
 import com.niit.sparescart.domain.Product;
 import com.niit.sparescart.domain.Supplier;
+import com.niit.sparescart.domain.User;
 
 @Controller
 public class AdminController {
@@ -35,13 +37,14 @@ public class AdminController {
 	@Autowired
 	Category category;
 	
+	
 	@RequestMapping("/manage_categories")
 	public ModelAndView manageCategories()
 	{
 		System.out.println("manage categories");
 		ModelAndView mv = new ModelAndView("/Admin/AdminHome");
-		mv.addObject("isUserClickedCategories", "true");	
-		
+		mv.addObject("isUserClickedCategories", "true");
+				
 		//showing list all from category table
 		List<Category> categoryList = categoryDAO.getallCategories();
 		mv.addObject("categoryList", categoryList);
@@ -74,4 +77,5 @@ public class AdminController {
 		mv.addObject("supplier", supplier);
 	        	return mv;
 	}
+	
 }
